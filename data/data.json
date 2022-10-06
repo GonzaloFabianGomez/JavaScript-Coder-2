@@ -1,0 +1,74 @@
+[
+    {
+        "precio" : "150000",
+        "id" : 1,
+        "titulo" : "SMART TV",
+        "imagen" : "../img/producto1.jpg"
+    },
+    {
+        "precio" : "150000",
+        "id" : 2,
+        "titulo" : "SMART TV",
+        "imagen" : "../img/producto1.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 3,
+        "titulo" : "HELADERA",
+        "imagen" : "../img/producto2.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 4,
+        "titulo" : "HELADERA",
+        "imagen" : "../img/producto2.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 5,
+        "titulo" : "LAVARROPAS",
+        "imagen" : "../img/producto3.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 6,
+        "titulo" : "COCINA",
+        "imagen" : "../img/producto4.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 7,
+        "titulo" : "IPHONE",
+        "imagen" : "../img/producto5.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 8,
+        "titulo" : "LAPTOP",
+        "imagen" : "../img/producto6.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 9,
+        "titulo" : "PARLANTE",
+        "imagen" : "../img/producto7.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 10,
+        "titulo" : "AIRE ACONDICIONADO",
+        "imagen" : "../img/producto8.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 11,
+        "titulo" : "AIRE ACONDICIONADO",
+        "imagen" : "../img/producto8.jpg"
+    },    
+    {
+        "precio" : "150000",
+        "id" : 12,
+        "titulo" : "AIRE ACONDICIONADO",
+        "imagen" : "../img/producto8.jpg"
+    }
+]
