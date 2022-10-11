@@ -8,7 +8,7 @@ const fragment = document.createDocumentFragment()
 let carrito = {}
 
 // Eventos
-// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado
+
 document.addEventListener('DOMContentLoaded', e => {
     fetchData()
     if (localStorage.getItem('carrito')) {
@@ -23,7 +23,7 @@ items.addEventListener('click', e => { btnAumentarDisminuir(e) })
 const fetchData = async () => {
     const res = await fetch('data/data.json');
     const data = await res.json()
-    // console.log(data)
+
     pintarCards(data)
 }
 
@@ -43,22 +43,29 @@ const pintarCards = data => {
 // Agregar al carrito
 const addCarrito = e => {
     if (e.target.classList.contains('btn-primary')) {
-        // console.log(e.target.dataset.id)
-        // console.log(e.target.parentElement)
+
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
+
+    Toastify({
+        text: "Producto Agregado",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #52c234, #061700 )",
+        }
+    }).showToast();
 }
 
 const setCarrito = objeto => {
-    // console.log(item)
+
     const producto = {
-        title: objeto.querySelector('h5').textContent,
+        titulo: objeto.querySelector('h5').textContent,
         precio: objeto.querySelector('p').textContent,
         id: objeto.querySelector('button').dataset.id,
         cantidad: 1
     }
-    // console.log(producto)
+
     if (carrito.hasOwnProperty(producto.id)) {
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
@@ -104,7 +111,7 @@ const pintarFooter = () => {
     // sumar cantidad y sumar totales
     const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
     const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-    // console.log(nPrecio)
+
 
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
@@ -118,17 +125,33 @@ const pintarFooter = () => {
     boton.addEventListener('click', () => {
         carrito = {}
         pintarCarrito()
+
+        Toastify({
+            text: "Carrito Vaciado",
+            className: "info",
+            style: {
+                background: "linear-gradient(to right, #56CCF2, #2F80ED)",
+            }
+        }).showToast();
     })
 
 }
 
 const btnAumentarDisminuir = e => {
-    // console.log(e.target.classList.contains('btn-info'))
+
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
         carrito[e.target.dataset.id] = { ...producto }
         pintarCarrito()
+
+        Toastify({
+            text: "Producto Agregado",
+            className: "info",
+            style: {
+                background: "linear-gradient(to right, #52c234, #061700 )",
+            }
+        }).showToast();
     }
 
     if (e.target.classList.contains('btn-danger')) {
@@ -140,6 +163,14 @@ const btnAumentarDisminuir = e => {
             carrito[e.target.dataset.id] = {...producto}
         }
         pintarCarrito()
+
+        Toastify({
+            text: "Producto Eliminado",
+            className: "info",
+            style: {
+                background: "linear-gradient(to right, #ED213A, #93291E)",
+            }
+        }).showToast();
     }
     e.stopPropagation()
 }
